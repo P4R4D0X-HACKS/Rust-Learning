@@ -1,8 +1,5 @@
 Overview
 
-This document provides a comprehensive analysis of the given Rust code, covering fundamental data types, compound data structures, and their usage within the context of the main and compound_datatypes functions.
-Scalar Data Types
-
 Rust offers several primitive data types to represent different kinds of values. The code demonstrates the following:
 Integer Types
 
