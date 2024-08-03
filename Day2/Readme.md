@@ -1,75 +1,169 @@
-Overview
+Day 2
 
-Rust offers several primitive data types to represent different kinds of values. The code demonstrates the following:
-Integer Types
+On the second day of learning Rust, I learned about: Scalar Data Types
 
-    Unsigned integers:
-        u8: Unsigned 8-bit integer (range: 0 to 255)
-        Other unsigned integer types: u16, u32, u64, u128 (not explicitly used in the code)
-    Signed integers:
-        i32: Signed 32-bit integer (default integer type)
-        Other signed integer types: i8, i64, i128 (not explicitly used in the code)
-    Architecture-specific integers:
-        usize: Unsigned integer with the size of a word-sized integer
-        isize: Signed integer with the size of a word-sized integer
+**Unsigned Integer**
 
-Floating-Point Types
+Unsigned integers represent non-negative values only. They come in various sizes:
 
-    f32: Single-precision floating-point number
-    f64: Double-precision floating-point number
+    u8: 8-bit unsigned integer
+    u16: 16-bit unsigned integer
+    u32: 32-bit unsigned integer
+    u64: 64-bit unsigned integer
+    u128: 128-bit unsigned integer
 
-Character Type
+Example:
 
-    char: Represents a Unicode character
+```rust
+let unsigned_num: u8 = 5;
+```
 
-Boolean Type
+**Signed Integer**
 
-    bool: Represents a boolean value (true or false)
+Signed integers can represent both negative and positive values. They come in various sizes:
 
-Type Aliasing
+    i8: 8-bit signed integer
+    i16: 16-bit signed integer
+    i32: 32-bit signed integer
+    i64: 64-bit signed integer
+    i128: 128-bit signed integer
 
-    type Age = u8: Creates a new name Age for the u8 type.
-    let my_age: Age = 23: Declares a variable my_age of type Age with the value 23.
+Example:
 
-Type Conversion
 
-    let a = 10; let b = a as f64;: Converts integer a to floating-point number b using the as keyword.
+```rust
+let signed_num = 5; // Defaults to i32 if not specified
+```
 
-Compound Data Types
+**Floating Point Number**
 
-Rust provides several ways to group multiple values together. The code demonstrates the following:
-Strings
+Floating point numbers represent numbers with fractional parts. They come in two sizes:
 
-    &str: A string slice representing a fixed-length sequence of characters.
-    String: A mutable string that can grow in size.
+    f32: 32-bit floating point number
+    f64: 64-bit floating point number
 
-Arrays
+Example:
 
-    Fixed-size collections of elements of the same type.
-    Accessed using indexing.
-    Example: let mut array_1 = [3, 5, 6, 3, 6, 6];
+```rust
+let float_num: f32 = 5.0;
+```
 
-Vectors
+**Platform Specific Integers**
 
-    Resizable collections of elements of the same type.
-    Accessed using indexing.
-    Example: let vec_1 = vec![4, 3, 2, 3, 2];
+These types adjust to the size of the platform's architecture:
 
-Tuples
+    usize: Unsigned integer whose size is dependent on the platform (32-bit on a 32-bit system, 64-bit on a 64-bit system)
+    isize: Signed integer whose size is dependent on the platform (32-bit on a 32-bit system, 64-bit on a 64-bit system)
 
-    Collections of different data types.
-    Accessed using indexing or pattern matching.
-    Example: let my_info = ("Salary", 4000, "Age", 49.2);
+Example:
 
-Unit Type
 
-    (): Represents an empty value or tuple.
+```rust
+let arch_1: usize = 5;
+let arch_2: isize = 5;
+```
 
-Function Analysis
-fn main()
+**Character**
 
-    Demonstrates the usage of scalar data types, type aliasing, and type conversion.
+Characters in Rust are represented by the char type. They can represent a single Unicode scalar value.
 
-fn compound_datatypes()
+Example:
 
-    Illustrates the use of strings, arrays, vectors, and tuples.
+```rust
+let character = 'a';
+```
+
+**Boolean**
+
+Boolean values in Rust are represented by the bool type and can be either true or false.
+
+Example:
+
+```rust
+let b = true;
+```
+
+**Type Aliasing**
+
+Type aliasing allows you to create a new name for an existing type. This can make your code more readable.
+
+Example:
+
+```rust
+type Age = u8;
+let my_age: Age = 23;
+```
+
+**Type Conversion**
+
+Rust does not automatically convert between different types. Instead, you must explicitly convert using the as keyword.
+
+Example:
+
+```rust
+let a = 10;
+let b = a as f64;
+```
+
+### Compound Data Types
+**&str and String**
+
+    &str: A string slice, which is an immutable reference to a string.
+    String: A growable, mutable string type.
+
+Example:
+
+```rust
+let fixed_str = "Fixed length string";
+let mut flexible_string = String::from("This string will grow.");
+flexible_string.push('s');
+```
+
+**Arrays**
+
+Arrays are fixed-size collections of elements of the same type.
+
+Example:
+
+
+
+```rust
+let mut array_1 = [3, 5, 6, 3, 6, 6];
+let num = array_1[3]; // Accessing an element
+
+println!("{:?}", array_1); // Prints the array
+let array_2 = [0; 10]; // An array of ten zeros
+```
+
+**Vectors**
+
+Vectors are resizable arrays. They are defined using the Vec type.
+
+Example:
+
+```rust
+let vec_1 = vec![4, 3, 2, 3, 2];
+let num = vec_1[3]; // Accessing an element
+```
+
+**Tuples**
+
+Tuples are fixed-size collections of elements of different types.
+
+Example:
+
+```rust
+let my_info = ("Salary", 4000, "Age", 49.2);
+let salary_value = my_info.3; // Accessing an element by index
+let (salary, salary_value, age, age_value) = my_info; // Destructuring
+```
+
+**Unit Type**
+
+The unit type () is a type that has only one value, (). It is used when a value is not needed.
+
+Example:
+
+```rust
+let unit = ();
+```
